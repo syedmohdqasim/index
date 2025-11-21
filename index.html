@@ -5,101 +5,802 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syed Mohammad Qasim - Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: block;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .profile-picture-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 1em;
+            color: #666;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+            color: #667eea;
+        }
+
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .interest-category {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .interest-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .interest-category ul {
+            list-style: none;
+        }
+
+        .interest-category ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .interest-category ul li:last-child {
+            border-bottom: none;
+        }
+
+        .interest-category ul li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #667eea;
+            font-size: 1.5em;
+            line-height: 0.8;
+        }
+
+        .about-me-text {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .website-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .website-link:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        .website-link span {
+            margin-right: 8px;
+        }
+
+        .website-iframe {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .iframe-toggle {
+            margin-top: 15px;
+        }
+
+        .iframe-toggle button {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .iframe-toggle button:hover {
+            background: #e9ecef;
+            color: #667eea;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .experience-item, .publication-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .experience-item h3, .publication-item h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .experience-item .company, .experience-item .location {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .duration, .publication-item .venue {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul, .education-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item ul li, .education-item ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .experience-item ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .publication-item .award {
+            background: #ffd700;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .education-item h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .education-item .institution {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item .degree {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
             background: white;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        header {
-            background: #333;
-            color: white;
-            padding: 10px 0;
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-category ul li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
             text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 40px;
+            border-top: 1px solid #e0e0e0;
         }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-picture, .profile-picture-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                gap: 5px;
+            }
+
+            .nav-tab {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
         }
-        .section {
-            margin-bottom: 20px;
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .certificate-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        li {
-            margin: 5px 0;
+
+        .certificate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .contact a {
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .certificate-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            border: 2px dashed #ccc;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .certificate-item h3 {
             color: #333;
-            text-decoration: none;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .certificate-item .issuer {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .certificate-item .date {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .certificate-item .credential-id {
+            color: #999;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Syed Mohammad Qasim</h1>
-        <p>Computer Engineering PhD Student | Cloud Performance Analytics | Machine Learning</p>
-    </header>
     <div class="container">
-        <div class="section contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:sqasim@bu.edu">sqasim@bu.edu</a></p>
-            <p>GitHub: <a href="https://github.com/syedmohdqasim" target="_blank">github.com/syedmohdqasim</a></p>
-        </div>
-        <div class="section">
+        <header>
+            <!-- Profile Picture -->
+            <img src="images/profile.jpg" alt="Syed Mohammad Qasim" class="profile-picture">
+            <h1>Syed Mohammad Qasim</h1>
+            <div class="subtitle">Computer Engineering PhD Student | Cloud Performance Analytics | Machine Learning</div>
+            <div class="contact-info">
+                <a href="mailto:sqasim@bu.edu">
+                    <span>📧</span> sqasim@bu.edu
+                </a>
+                <a href="https://github.com/syedmohdqasim" target="_blank">
+                    <span>🔗</span> github.com/syedmohdqasim
+                </a>
+                <a href="https://www.linkedin.com/in/syed-mohammad-qasim-298a91a6/" target="_blank">
+                    <span>💼</span> LinkedIn Profile
+                </a>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('professional')">Professional</button>
+            <button class="nav-tab" onclick="showTab('about')">About Me & Interests</button>
+        </nav>
+
+        <!-- Professional Tab Content -->
+        <div id="professional" class="tab-content active">
+        <section class="section">
             <h2>Research Experience</h2>
-            <p><strong>PeacLab, Boston University</strong> (Sept 2022 - Present)</p>
-            <ul>
-                <li>Diagnosing performance issues using ML methods in Cloud.</li>
-                <li>Leveraging LLMs to improve usability of monitoring systems like Jaeger.</li>
-            </ul>
-        </div>
-        <div class="section">
+            <div class="experience-item">
+                <h3>Research Assistant</h3>
+                <div class="company">PeacLab, Boston University</div>
+                <div class="duration">September 2022 - Present</div>
+                <ul>
+                    <li>Diagnosing performance issues using ML methods in Cloud environments</li>
+                    <li>Leveraging LLMs to improve usability of monitoring systems like Jaeger</li>
+                    <li>Developing novel approaches for cloud performance analytics</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
             <h2>Publications</h2>
-            <ul>
-                <li>[Best Paper Award] "Unleashing Performance Insights with Online Probabilistic Tracing" - IC2E 2024</li>
-                <li>"Efficient Navigation of Cloud Performance with ’nuffTrace" - IC2E 2023</li>
-            </ul>
-        </div>
-        <div class="section">
+            <div class="publication-item">
+                <span class="award">🏆 Best Paper Award</span>
+                <h3>Unleashing Performance Insights with Online Probabilistic Tracing</h3>
+                <div class="venue">IC2E 2024</div>
+            </div>
+            <div class="publication-item">
+                <h3>Efficient Navigation of Cloud Performance with 'nuffTrace</h3>
+                <div class="venue">IC2E 2023</div>
+            </div>
+        </section>
+
+        <section class="section">
             <h2>Work Experience</h2>
-            <p><strong>Chameleon Cloud, PhD Intern</strong> (May 2024 - July 2024)</p>
-            <ul>
-                <li>Evaluated ML-based anomaly detection methods on OpenStack observability data.</li>
-            </ul>
-            <p><strong>State Street Corporation, Manager Platform Engineering</strong> (Jul 2019 - Sep 2022)</p>
-            <ul>
-                <li>Automated ML model deployment using DataRobot.</li>
-                <li>Developed security models and API authentication mechanisms.</li>
-            </ul>
-            <p><strong>Thoughtworks, Application Developer</strong> (Jul 2017 - Jul 2019)</p>
-            <ul>
-                <li>Developed a decentralized app (DApp) using Ethereum-Quorum Blockchain.</li>
-                <li>Built smart contracts and front-end using React-Redux.</li>
-            </ul>
-        </div>
-        <div class="section">
+            <div class="experience-item">
+                <h3>PhD Intern</h3>
+                <div class="company">Chameleon Cloud</div>
+                <div class="duration">May 2024 - July 2024</div>
+                <ul>
+                    <li>Evaluated ML-based anomaly detection methods on OpenStack observability data</li>
+                    <li>Analyzed performance metrics and system behavior in cloud infrastructure</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Manager Platform Engineering</h3>
+                <div class="company">State Street Corporation</div>
+                <div class="duration">July 2019 - September 2022</div>
+                <ul>
+                    <li>Automated ML model deployment using DataRobot platform</li>
+                    <li>Developed security models and API authentication mechanisms</li>
+                    <li>Led platform engineering initiatives for scalable ML operations</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Application Developer</h3>
+                <div class="company">Thoughtworks</div>
+                <div class="duration">July 2017 - July 2019</div>
+                <ul>
+                    <li>Developed a decentralized app (DApp) using Ethereum-Quorum Blockchain</li>
+                    <li>Built smart contracts and front-end using React-Redux</li>
+                    <li>Implemented blockchain solutions for enterprise clients</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
             <h2>Education</h2>
-            <p><strong>Boston University</strong> (Sept 2022 - Present) - Ph.D. (Computer Engineering) (GPA: 3.8/4)</p>
-            <p><strong>Aligarh Muslim University</strong> (Aug 2013 - June 2017) - B.Tech (Computer Engineering) (GPA: 8.47/10)</p>
-        </div>
-        <div class="section">
+            <div class="education-item">
+                <div class="institution">Boston University</div>
+                <div class="degree">Ph.D. in Computer Engineering</div>
+                <div class="duration">September 2022 - Present | GPA: 3.8/4.0</div>
+            </div>
+            <div class="education-item">
+                <div class="institution">Aligarh Muslim University</div>
+                <div class="degree">B.Tech in Computer Engineering</div>
+                <div class="duration">August 2013 - June 2017 | GPA: 8.47/10</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Certifications & Licenses</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <h3>On Premises Capacity Upgrade and Monitoring with Google Cloud's Apigee API Platform</h3>
+                    <div class="issuer">Coursera</div>
+                    <div class="date">Issued August 2020</div>
+                    <div class="credential-id">Credential ID: REMHCYLVARF8</div>
+                </div>
+                <div class="certificate-item">
+                    <h3>On Premises Installation and Fundamentals with Google Cloud's Apigee API Platform</h3>
+                    <div class="issuer">Coursera</div>
+                    <div class="date">Issued June 2020</div>
+                    <div class="credential-id">Credential ID: 83XL8D4VRFVV</div>
+                </div>
+                <div class="certificate-item">
+                    <h3>On Premises Management, Security, and Upgrade with Google Cloud's Apigee API Platform</h3>
+                    <div class="issuer">Coursera</div>
+                    <div class="date">Issued June 2020</div>
+                    <div class="credential-id">Credential ID: GAARHYHMEF9E</div>
+                </div>
+                <div class="certificate-item">
+                    <h3>API Security on Google Cloud's Apigee API Platform</h3>
+                    <div class="issuer">Coursera</div>
+                    <div class="date">Issued August 2019</div>
+                    <div class="credential-id">Credential ID: 6TWARY2Y68NZ</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
             <h2>Key Skills</h2>
-            <ul>
-                <li>Programming: Python, Java, C++, JavaScript, Solidity, SQL</li>
-                <li>Platforms/Tools: Kubernetes, Kafka, ElasticSearch, ORM, Spring</li>
-            </ul>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C++</li>
+                        <li>JavaScript</li>
+                        <li>Solidity</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Platforms & Tools</h3>
+                    <ul>
+                        <li>Kubernetes</li>
+                        <li>Kafka</li>
+                        <li>ElasticSearch</li>
+                        <li>ORM</li>
+                        <li>Spring</li>
+                        <li>OpenStack</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>Machine Learning</li>
+                        <li>LLMs</li>
+                        <li>Cloud Computing</li>
+                        <li>Blockchain (Ethereum, Quorum)</li>
+                        <li>React-Redux</li>
+                        <li>DataRobot</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         </div>
+
+        <!-- About Me & Interests Tab Content -->
+        <div id="about" class="tab-content">
+            <section class="section">
+                <h2>About Me</h2>
+                <div class="about-me-text">
+                    <p>I am a Computer Engineering PhD student at Boston University working in PeacLab on cloud performance analytics, distributed tracing, and ML/LLM-based debugging methods. I've published at IC2E, including a Best Paper Award in 2024 for advancing probabilistic tracing in cloud systems. Before academia, I worked as Manager of Platform Engineering at State Street and developed enterprise blockchain applications at Thoughtworks. I co-founded Sunrise Primary School in Lucknow to support affordable education for underprivileged children. I also mentor students through the Sir Syed Global Scholar Award (SSGSA).</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Interests & Hobbies</h2>
+                <div class="about-me-text">
+                    <p style="font-size: 1.1em; line-height: 2;">
+                        Photography • Table Tennis • Tennis • Travel • Solving Puzzles
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Community Service</h2>
+                <div class="experience-item">
+                    <h3>Co-founder & Trustee</h3>
+                    <div class="company">Sunrise Primary School, Lucknow, UP, India</div>
+                    <div class="duration">August 2021 - Present</div>
+                    <ul>
+                        <li>Co-founded a non-profit school for underprivileged children with affordable pricing</li>
+                        <li>Prepared business plan and designed curriculum</li>
+                        <li>Hire teachers and actively teach students</li>
+                        <li>Dedicated to providing quality education to underserved communities</li>
+                    </ul>
+                    <a href="https://sunriseschoollucknow.org" target="_blank" class="website-link">
+                        <span>🌐</span> Visit School Website
+                    </a>
+                    <div class="iframe-toggle">
+                        <button onclick="toggleIframe()">Show/Hide School Website Preview</button>
+                    </div>
+                    <iframe id="school-iframe" class="website-iframe" src="https://sunriseschoollucknow.org" style="display: none;" title="Sunrise Primary School Website"></iframe>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Mentoring</h2>
+                <div class="experience-item">
+                    <h3>Mentor</h3>
+                    <div class="company">Sir Syed Global Scholar Award (SSGSA), North America</div>
+                    <div class="duration">Present</div>
+                    <ul>
+                        <li>Mentor meritorious AMU students and alumni for graduate school applications (MS/PhD programs)</li>
+                        <li>Guide students in the application process for universities of international repute</li>
+                        <li>Support students through the SSGSA program, an AMU alumni initiative that provides mentorship and financial support for pursuing higher education abroad</li>
+                        <li>Help students navigate the graduate school application process, from selecting universities to preparing application materials</li>
+                    </ul>
+                    <a href="https://ssgsa.us" target="_blank" class="website-link">
+                        <span>🌐</span> Visit SSGSA Website
+                    </a>
+                    <p style="margin-top: 15px; padding: 15px; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #2196F3; font-size: 0.95em; line-height: 1.6; color: #555;">
+                        <strong>About SSGSA:</strong> The Sir Syed Global Scholar Award (SSGSA) is an Aligarh Muslim University (AMU) alumni initiative for mentoring and financially supporting meritorious AMU students for graduate school applications. The program supports talented students in securing admission to MS/PhD programs at universities of international repute. Learn more at <a href="https://ssgsa.us" target="_blank" style="color: #2196F3; font-weight: 600;">ssgsa.us</a>.
+                    </p>
+                </div>
+                <div class="experience-item" style="margin-top: 25px;">
+                    <h3>Mentor</h3>
+                    <div class="company">Programmers Forum, ZHCET, AMU, India</div>
+                    <div class="duration">October 2015 - 2017</div>
+                    <ul>
+                        <li>Mentored and guided freshman and sophomore students to prepare for coding competitions</li>
+                        <li>Helped students develop problem-solving skills and algorithmic thinking</li>
+                        <li>Shared knowledge and experience in competitive programming</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Awards & Achievements</h2>
+                <div class="experience-item">
+                    <h3>🏆 First Prize - Inter School Programming Competition</h3>
+                    <div class="company">Cathedral School, Lucknow, India</div>
+                    <div class="duration">September 2011</div>
+                    <p>Won first prize at Inter School Programming Competition at Cathedral School in 2011.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>🥈 Second Prize - Table Tennis Competition</h3>
+                    <div class="company">IIT-BHU, Varanasi, India</div>
+                    <div class="duration">September 2014</div>
+                    <ul>
+                        <li>Represented Aligarh Muslim University (AMU) during Table Tennis competition at IIT-BHU in 2014</li>
+                        <li>Won 2nd prize in the competition</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>🏆 Sports Achievements - AMU</h3>
+                    <div class="company">Aligarh Muslim University, Aligarh, India</div>
+                    <ul>
+                        <li>Runner up in Inter Hall Lawn Tennis competition</li>
+                        <li>Represented the Hall in Basketball tournaments</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Syed Mohammad Qasim | Portfolio Website</p>
+        </footer>
     </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Smooth scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleIframe() {
+            const iframe = document.getElementById('school-iframe');
+            if (iframe.style.display === 'none') {
+                iframe.style.display = 'block';
+            } else {
+                iframe.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
-
