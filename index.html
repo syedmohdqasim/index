@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Syed Mohammad Qasim - Portfolio</title>
+    <title>Syed Mohammad Qasim</title>
+    <meta name="description" content="Syed Mohammad Qasim — PhD candidate in Computer Engineering at Boston University. Distributed systems, cloud reliability, and ML/LLM-based performance debugging." />
+    <meta name="author" content="Syed Mohammad Qasim" />
+    <meta property="og:title" content="Syed Mohammad Qasim" />
+    <meta property="og:description" content="PhD candidate at Boston University working on distributed systems, cloud reliability, and ML/LLM-based performance debugging." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://syedmohdqasim.github.io/index/" />
+    <meta property="og:image" content="https://syedmohdqasim.github.io/index/images/profile.jpg" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a4b8c'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='white' text-anchor='middle'%3ESQ%3C/text%3E%3C/svg%3E" />
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-            --bg-pattern: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                          radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-            --accent: #818cf8;
-            --accent-hover: #a5b4fc;
-            --accent-soft: rgba(129, 140, 248, 0.15);
-            --accent-strong: rgba(129, 140, 248, 0.4);
-            --card-bg: rgba(30, 41, 59, 0.6);
-            --card-soft: rgba(30, 41, 59, 0.5);
-            --border-subtle: rgba(148, 163, 184, 0.2);
-            --border-hover: rgba(129, 140, 248, 0.5);
-            --text-main: #f1f5f9;
-            --text-muted: #cbd5e1;
-            --chip-bg: rgba(30, 41, 59, 0.7);
-            --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.4);
-            --shadow-hover: 0 25px 60px rgba(99, 102, 241, 0.3);
-            --radius-lg: 20px;
-            --radius-xl: 28px;
-            --glow: 0 0 20px rgba(129, 140, 248, 0.3);
+            --text: #1a1a1a;
+            --text-muted: #555555;
+            --text-faint: #777777;
+            --link: #1a4b8c;
+            --link-hover: #0f3a73;
+            --rule: #e2e2e2;
+            --bg: #ffffff;
+            --highlight-bg: #fff8e1;
+            --highlight-border: #e6c229;
+            --tag-bg: #f0f4fa;
         }
 
         * {
@@ -37,1057 +36,490 @@
             scroll-behavior: smooth;
         }
 
-        html, body {
-            height: 100%;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text-main);
-            background: var(--bg-gradient), var(--bg-pattern);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 24px 16px;
-            min-height: 100vh;
-            position: relative;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1120px;
+        .page {
+            max-width: 760px;
             margin: 0 auto;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(30px) saturate(180%);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            overflow: hidden;
-            animation: fadeIn 0.6s ease-out;
-            transition: box-shadow 0.3s ease;
+            padding: 48px 20px 60px 20px;
         }
 
-        .container:hover {
-            box-shadow: var(--shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        a {
+            color: var(--link);
+            text-decoration: none;
         }
 
-        header {
-            padding: 36px 32px 28px 32px;
-            border-bottom: 1px solid var(--border-subtle);
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
-            position: relative;
-            overflow: hidden;
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
         }
 
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.5;
-        }
-
-        .header-inner {
+        /* ---------- Header ---------- */
+        .header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            align-items: center;
+            gap: 28px;
+            align-items: flex-start;
             justify-content: space-between;
+            margin-bottom: 8px;
         }
 
-        .profile-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 22px;
+        .header-text {
+            flex: 1;
+            min-width: 0;
         }
 
-        .profile-picture {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-strong);
-            object-fit: cover;
-            box-shadow: var(--glow), 0 20px 50px rgba(0, 0, 0, 0.5);
-            background: radial-gradient(circle at top, rgba(248, 250, 252, 0.2), rgba(15, 23, 42, 0.9));
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .profile-picture:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(129, 140, 248, 0.5), 0 25px 60px rgba(0, 0, 0, 0.6);
-            border-color: var(--accent-hover);
-        }
-
-        .profile-text h1 {
-            font-size: 2rem;
+        h1 {
+            font-size: 1.9rem;
             font-weight: 700;
             letter-spacing: -0.01em;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideIn 0.6s ease-out 0.2s both;
+            margin-bottom: 4px;
         }
 
-        .subtitle-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            font-size: 0.78rem;
+        .tagline {
+            font-size: 1rem;
             color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            font-size: 0.86rem;
+            color: #5c4a00;
+            background: var(--highlight-bg);
+            border: 1px solid var(--highlight-border);
+            border-radius: 6px;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+        }
+
+        .links {
+            font-size: 0.92rem;
+        }
+
+        .links a {
+            margin-right: 6px;
+        }
+
+        .links span.sep {
+            color: #c0c0c0;
+            margin-right: 6px;
+        }
+
+        .profile-photo {
+            width: 148px;
+            height: 148px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .bio {
+            margin-top: 22px;
+            font-size: 0.97rem;
+        }
+
+        .bio p + p {
+            margin-top: 10px;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            margin-top: 38px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 16px;
+        }
+
+        /* ---------- News ---------- */
+        .news-list {
+            list-style: none;
+            font-size: 0.94rem;
+        }
+
+        .news-list li {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+
+        .news-date {
+            flex-shrink: 0;
+            width: 92px;
+            color: var(--text-faint);
+            font-size: 0.88rem;
+            padding-top: 1px;
+        }
+
+        /* ---------- Publications ---------- */
+        .pub {
+            margin-bottom: 22px;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .pub-authors {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .pub-authors .me {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .pub-venue {
+            font-size: 0.9rem;
+            color: var(--text-faint);
+            margin-top: 1px;
+        }
+
+        .pub-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 1px 8px;
+            margin-left: 6px;
+            vertical-align: 1px;
+        }
+
+        .badge-award {
+            background: var(--highlight-bg);
+            border: 1px solid var(--highlight-border);
+            color: #5c4a00;
+        }
+
+        .badge-note {
+            background: var(--tag-bg);
+            border: 1px solid #cdd9ea;
+            color: var(--link);
+        }
+
+        /* ---------- Experience / Education ---------- */
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .item-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 0.98rem;
+        }
+
+        .item-title .org {
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .item-date {
+            color: var(--text-faint);
+            font-size: 0.88rem;
+            white-space: nowrap;
+            padding-top: 2px;
+        }
+
+        .item ul {
+            margin-top: 4px;
+            padding-left: 20px;
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        .item ul li {
+            margin-bottom: 3px;
+        }
+
+        .item .note {
+            margin-top: 4px;
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        /* ---------- Skills ---------- */
+        .skills {
+            font-size: 0.94rem;
+        }
+
+        .skills p {
             margin-bottom: 6px;
         }
 
-        .subtitle-pill span {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: #22c55e;
-            box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
-        }
-
-        .subtitle-main {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-
-        .contact-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: var(--chip-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-chip span {
-            font-size: 1.15rem;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-chip:hover {
-            border-color: var(--accent);
-            color: var(--text-main);
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(129, 140, 248, 0.4), var(--glow);
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.2), rgba(168, 85, 247, 0.1));
-        }
-
-        .contact-chip:hover span {
-            transform: scale(1.1);
-        }
-
-        /* Tabs */
-        .nav-tabs {
-            display: flex;
-            gap: 8px;
-            padding: 12px 24px 0 24px;
-            border-bottom: 1px solid rgba(31, 41, 55, 0.85);
-            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 55%);
-        }
-
-        .nav-tab {
-            border: none;
-            background: transparent;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            border-radius: 999px;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.22s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-tab::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: transparent;
-            transition: background 0.2s ease;
-        }
-
-        .nav-tab.active {
-            color: var(--text-main);
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.2), rgba(168, 85, 247, 0.1));
-            border: 1px solid var(--accent-strong);
-            box-shadow: 0 4px 20px rgba(129, 140, 248, 0.3), var(--glow);
+        .skills strong {
             font-weight: 600;
         }
 
-        .nav-tab.active::before {
-            background: var(--accent);
-            box-shadow: 0 0 8px var(--accent);
-        }
-
-        .nav-tab:hover:not(.active) {
-            background: rgba(30, 41, 59, 0.6);
-            color: var(--text-main);
-            transform: translateY(-1px);
-        }
-
-        /* Main content */
-        .content {
-            padding: 22px 24px 26px 24px;
-        }
-
-        .tab-content {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-        }
-
-        .tab-content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        .section {
-            margin-bottom: 28px;
-            padding: 24px;
-            background: var(--card-bg);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .section:hover {
-            border-color: var(--border-hover);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(129, 140, 248, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            opacity: 0.08;
-            background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.8), transparent 70%);
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .section:hover::before {
-            opacity: 0.12;
-        }
-
-        .section h2 {
-            font-size: 1.15rem;
-            margin-bottom: 10px;
-            color: #e5e7eb;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section h2::before {
-            content: "";
-            width: 5px;
-            height: 20px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, var(--accent), #a78bfa);
-            box-shadow: 0 0 10px rgba(129, 140, 248, 0.5);
-        }
-
-        .section-inner {
-            position: relative;
-            z-index: 1;
-        }
-
-        .experience-item,
-        .publication-item,
-        .education-item {
-            margin-bottom: 16px;
-            padding: 18px;
-            background: var(--card-soft);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(30, 41, 59, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .experience-item:hover,
-        .publication-item:hover,
-        .education-item:hover {
-            border-color: var(--accent-strong);
-            background: rgba(30, 41, 59, 0.7);
-            transform: translateX(4px);
-            box-shadow: 0 4px 20px rgba(129, 140, 248, 0.15);
-        }
-
-        .experience-item:last-child,
-        .publication-item:last-child,
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .experience-item h3,
-        .publication-item h3 {
-            font-size: 0.98rem;
-            margin-bottom: 4px;
-        }
-
-        .publication-item h3 a {
-            transition: all 0.2s ease;
-        }
-
-        .publication-item h3 a:hover {
-            color: var(--accent) !important;
-            border-bottom-color: var(--accent) !important;
-        }
-
-        .company,
-        .institution {
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .duration,
-        .venue {
-            font-size: 0.8rem;
-            color: #6b7280;
-            margin-top: 2px;
-            margin-bottom: 8px;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item ul li {
-            position: relative;
-            padding-left: 18px;
-            font-size: 0.86rem;
-            color: var(--text-main);
-            margin-bottom: 4px;
-        }
-
-        .experience-item ul li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--accent);
-            font-size: 0.9rem;
-            filter: drop-shadow(0 0 4px rgba(129, 140, 248, 0.5));
-            transition: transform 0.2s ease;
-        }
-
-        .experience-item ul li:hover::before {
-            transform: scale(1.2);
-        }
-
-        .publication-item .award {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #facc15, #f97316);
-            color: #111827;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .publication-item .poster-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .publication-item .authors {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            margin-bottom: 4px;
-            font-style: italic;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
-
-        .skill-category {
-            background: var(--card-soft);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(30, 41, 59, 0.5);
-            padding: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .skill-category:hover {
-            border-color: var(--accent-strong);
-            background: rgba(30, 41, 59, 0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(129, 140, 248, 0.15);
-        }
-
-        .skill-category h3 {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .skill-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .skill-category ul li {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            padding: 3px 0;
-        }
-
-        .about-me-text {
-            background: var(--card-soft);
-            border-radius: 14px;
-            border: 1px solid rgba(31, 41, 55, 0.9);
-            padding: 14px 14px;
-            font-size: 0.9rem;
-            color: var(--text-main);
-        }
-
-        .about-me-text p + p {
-            margin-top: 8px;
-        }
-
-        .website-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-            padding: 10px 18px;
-            border-radius: 999px;
-            border: 1px solid var(--accent-strong);
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.15), rgba(168, 85, 247, 0.1));
-            backdrop-filter: blur(10px);
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.87rem;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(129, 140, 248, 0.2);
-        }
-
-        .website-link:hover {
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.3), rgba(168, 85, 247, 0.2));
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(129, 140, 248, 0.4), var(--glow);
-            border-color: var(--accent-hover);
-        }
-
-        .website-iframe {
-            width: 100%;
-            height: 420px;
-            border-radius: 14px;
-            border: 1px solid rgba(31, 41, 55, 0.9);
-            margin-top: 12px;
-            background: #020617;
-        }
-
-        .iframe-toggle button {
-            margin-top: 12px;
-            padding: 8px 16px;
-            border-radius: 999px;
-            border: 1px solid var(--border-subtle);
-            background: var(--chip-bg);
-            backdrop-filter: blur(10px);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .iframe-toggle button:hover {
-            border-color: var(--accent);
-            color: var(--text-main);
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.15), rgba(168, 85, 247, 0.1));
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(129, 140, 248, 0.25);
-        }
-
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 12px;
-        }
-
-        .certificate-item {
-            background: var(--card-soft);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(30, 41, 59, 0.5);
-            padding: 16px;
-            font-size: 0.84rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .certificate-item:hover {
-            border-color: var(--accent-strong);
-            background: rgba(30, 41, 59, 0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(129, 140, 248, 0.15);
-        }
-
-        .certificate-item h3 {
-            font-size: 0.86rem;
-            margin-bottom: 4px;
-        }
-
-        .certificate-item .issuer {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        .certificate-item .date {
-            color: #6b7280;
-            font-size: 0.78rem;
-            margin-top: 2px;
-        }
-
-        .certificate-item .credential-id {
-            font-size: 0.76rem;
-            color: #9ca3af;
-            margin-top: 6px;
-            font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        }
-
+        /* ---------- Footer ---------- */
         footer {
-            padding: 20px 28px 24px 28px;
-            border-top: 1px solid var(--border-subtle);
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.05), rgba(168, 85, 247, 0.03));
-            backdrop-filter: blur(10px);
-            position: relative;
+            margin-top: 52px;
+            padding-top: 16px;
+            border-top: 1px solid var(--rule);
+            font-size: 0.84rem;
+            color: var(--text-faint);
         }
 
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.5;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(4px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 16px 8px;
-            }
-
-            .container {
-                border-radius: 18px;
-            }
-
-            header {
-                padding: 24px 18px 14px 18px;
-            }
-
-            .header-inner {
-                flex-direction: column;
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column-reverse;
                 align-items: flex-start;
+                gap: 18px;
             }
 
-            .profile-wrapper {
-                width: 100%;
+            .profile-photo {
+                width: 120px;
+                height: 120px;
             }
 
-            .profile-picture {
-                width: 96px;
-                height: 96px;
+            .news-list li {
+                flex-direction: column;
+                gap: 0;
+                margin-bottom: 10px;
             }
 
-            .profile-text h1 {
-                font-size: 1.6rem;
+            .news-date {
+                width: auto;
             }
 
-            .contact-info {
-                justify-content: flex-start;
+            .item-head {
+                flex-direction: column;
+                gap: 0;
             }
+        }
 
-            .content {
-                padding: 16px 16px 18px 16px;
-            }
-
-            .nav-tabs {
-                padding-inline: 18px;
-                overflow-x: auto;
-            }
-
-            .nav-tab {
-                white-space: nowrap;
+        @media print {
+            .status {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <div class="header-inner">
-            <div class="profile-wrapper">
-                <img src="images/profile.jpg" alt="Syed Mohammad Qasim" class="profile-picture" />
-                <div class="profile-text">
-                    <div class="subtitle-pill">
-                        <span></span>
-                        Open to intern and research opportunities
-                    </div>
-                    <h1>Syed Mohammad Qasim</h1>
-                    <div class="subtitle-main">
-                        Computer Engineering PhD at Boston University • Cloud performance analytics • ML and LLM based debugging
-                    </div>
-                </div>
-            </div>
-            <div class="contact-info">
-                <a href="mailto:sqasim@bu.edu" class="contact-chip">
-                    <span>📧</span>
-                    sqasim@bu.edu
-                </a>
-                <a href="https://github.com/syedmohdqasim" target="_blank" class="contact-chip">
-                    <span>⌘</span>
-                    github.com/syedmohdqasim
-                </a>
-                <a href="https://www.linkedin.com/in/syed-mohammad-qasim-298a91a6/" target="_blank" class="contact-chip">
-                    <span>💼</span>
-                    LinkedIn
-                </a>
+<div class="page">
+
+    <div class="header">
+        <div class="header-text">
+            <h1>Syed Mohammad Qasim</h1>
+            <div class="tagline">PhD Candidate, Computer Engineering · Boston University · <a href="https://www.bu.edu/peaclab/" target="_blank" rel="noopener">PeacLab</a></div>
+            <div class="status">Seeking full-time roles · Expected graduation 2027</div>
+            <div class="links">
+                <a href="mailto:sqasim@bu.edu">Email</a> <span class="sep">/</span>
+                <a href="Syed_Qasim_Resume.pdf" target="_blank" rel="noopener">Resume</a> <span class="sep">/</span>
+                <a href="https://scholar.google.com/citations?user=HGHBhz0AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> <span class="sep">/</span>
+                <a href="https://github.com/syedmohdqasim" target="_blank" rel="noopener">GitHub</a> <span class="sep">/</span>
+                <a href="https://www.linkedin.com/in/syed-mohammad-qasim-298a91a6/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </div>
-    </header>
-
-    <nav class="nav-tabs">
-        <button class="nav-tab active" onclick="showTab(this, 'professional')">
-            Professional
-        </button>
-        <button class="nav-tab" onclick="showTab(this, 'about')">
-            About Me and Interests
-        </button>
-    </nav>
-
-    <div class="content">
-        <!-- Professional Tab -->
-        <div id="professional" class="tab-content active">
-            <section class="section">
-                <h2>Research Experience</h2>
-                <div class="section-inner">
-                    <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 0.95em; line-height: 1.6;">
-                        Distributed systems researcher and former platform engineer (5+ years) working at the intersection of cloud reliability, ML-based anomaly detection, and LLM reasoning over system traces.
-                    </p>
-                    <div class="experience-item">
-                        <h3>Research Assistant</h3>
-                        <div class="company">PeacLab, Boston University</div>
-                        <div class="duration">September 2022 – Present</div>
-                        <p style="margin-top: 8px; margin-bottom: 8px; font-size: 0.88rem; color: var(--text-muted);">
-                            Advisor: <a href="https://www.bu.edu/eng/profile/ayse-coskun/" target="_blank" style="color: var(--accent); text-decoration: none;">Prof. Ayșe K. Coskun</a> | 
-                            Co-Advisor: <a href="https://seclab.bu.edu/people/gianluca/" target="_blank" style="color: var(--accent); text-decoration: none;">Prof. Gianluca Stringhini</a>
-                        </p>
-                        <ul>
-                            <li>Built ML- and LLM-based tools that improve observability and debugging accuracy in large-scale cloud platforms and applications.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Work Experience</h2>
-                <div class="section-inner">
-                    <div class="experience-item">
-                        <h3>PhD Software Engineer Intern</h3>
-                        <div class="company">Uber</div>
-                        <div class="duration">May 2026 – August 2026</div>
-                        <ul>
-                            <li>Improved the precision of alert-triggered automated rollbacks, reducing unnecessary rollbacks caused by low-confidence alerts.</li>
-                            <li>Enriched rollback decisions with additional context, including the service dependency graph and surrounding metric context, to better attribute an alert to the deployment that actually caused it.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-item">
-                        <h3>PhD Intern</h3>
-                        <div class="company">Chameleon Cloud</div>
-                        <div class="duration">May 2024 – July 2024</div>
-                        <ul>
-                            <li>Evaluated ML based anomaly detection methods on OpenStack observability data.</li>
-                            <li>Analyzed control plane metrics to understand performance and failure patterns.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-item">
-                        <h3>Manager, Platform Engineering</h3>
-                        <div class="company">State Street Corporation</div>
-                        <div class="duration">April 2022 – September 2022</div>
-                        <ul>
-                            <li>Automated machine learning model development and deployment using DataRobot in order to fix data drift and model decay issues, automated upgrades using Ansible Tower on 100+ servers.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-item">
-                        <h3>Assistant Manager, Platform Engineering</h3>
-                        <div class="company">State Street Corporation</div>
-                        <div class="duration">July 2019 – April 2022</div>
-                        <ul>
-                            <li>Designed and developed security models using 2-way TLS, IP whitelisting, Oauth2, and API keys for authentication; automated maintenance activities, including a virus scanning microservice and backups to the cloud to build a front-to-back client servicing platform using API Gateway with increased accuracy, faster processing, and reduced cost.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-item">
-                        <h3>Application Developer</h3>
-                        <div class="company">Thoughtworks</div>
-                        <div class="duration">July 2017 – July 2019</div>
-                        <ul>
-                            <li>Designed and developed a decentralized app (DApp), using Ethereum-Quorum Blockchain to create a secure and trusted ecosystem; to get consensus from all participating oil trading organizations in the consortium in order to remove slow manual reconciliation. Developed smart contracts using solidity and deployed infrastructure on AWS ECS.</li>
-                            <li>Built scalable Spring Boot microservices (RESTful) for real-time Kafka data ingestion and dashboard updates. Engineered a custom Hibernate object-mapper to efficiently process complex, nested payloads and sustain high-throughput workloads.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Publications</h2>
-                <div class="section-inner">
-                    <div class="publication-item">
-                        <div class="poster-label">📌 Accepted</div>
-                        <h3>DSTBench: Distributed Systems Traces-Driven Agentic Performance Debugging in Microservices</h3>
-                        <div class="authors"><strong>S. M. Qasim</strong>, <a href="https://seclab.bu.edu/people/gianluca/" target="_blank" style="color: var(--accent); text-decoration: none;">G. Stringhini</a>, <a href="https://www.bu.edu/eng/profile/ayse-coskun/" target="_blank" style="color: var(--accent); text-decoration: none;">A. K. Coskun</a>, S. Xi, D. Altınbüken, A. Yazdanbakhsh</div>
-                        <div class="venue">IEEE International Conference on Cloud Engineering (IC2E), 2026</div>
-                    </div>
-                    <div class="publication-item">
-                        <h3><a href="https://www.bu.edu/peaclab/files/2025/08/chameleon_IC2E-camera-ready.pdf" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--accent);">Lessons Learned from Anomaly Detection in Chameleon Cloud</a></h3>
-                        <div class="authors"><strong>S. M. Qasim</strong>, C. Hankendi, M. Sherman, K. Keahey, <a href="https://seclab.bu.edu/people/gianluca/" target="_blank" style="color: var(--accent); text-decoration: none;">G. Stringhini</a> and <a href="https://www.bu.edu/eng/profile/ayse-coskun/" target="_blank" style="color: var(--accent); text-decoration: none;">A. K. Coskun</a></div>
-                        <div class="venue">IEEE International Conference on Cloud Engineering (IC2E), 2025</div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="award">🏆 Best Paper Award – IC2E 2024</div>
-                        <h3><a href="https://www.bu.edu/peaclab/files/2024/09/astraea_camera_ready2.pdf" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--accent);">Unleashing Performance Insights with Online Probabilistic Tracing</a></h3>
-                        <div class="authors">Mert Toslali, <strong>Syed Qasim</strong>, Srinivasan Parthasarathy, Fabio Oliviera, Alan Liu, <a href="https://seclab.bu.edu/people/gianluca/" target="_blank" style="color: var(--accent); text-decoration: none;">Gianluca Stringhini</a>, <a href="https://www.bu.edu/eng/profile/ayse-coskun/" target="_blank" style="color: var(--accent); text-decoration: none;">Ayse K. Coskun</a></div>
-                        <div class="venue">IEEE International Conference on Cloud Engineering (IC2E), September 2024</div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="poster-label">📄 Poster Paper</div>
-                        <h3><a href="https://www.bu.edu/peaclab/files/2023/08/2023185935.pdf" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--accent);">Efficient Navigation of Cloud Performance with 'nuffTrace</a></h3>
-                        <div class="authors"><strong>Syed Qasim</strong>, Mert Toslali, Quentin Clark, Srinivasan Parthasarathy, Fabio Oliviera, Alan Liu, <a href="https://seclab.bu.edu/people/gianluca/" target="_blank" style="color: var(--accent); text-decoration: none;">Gianluca Stringhini</a>, <a href="https://www.bu.edu/eng/profile/ayse-coskun/" target="_blank" style="color: var(--accent); text-decoration: none;">Ayse K. Coskun</a></div>
-                        <div class="venue">IEEE International Conference on Cloud Engineering (IC2E), September 2023</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Education</h2>
-                <div class="section-inner">
-                    <div class="education-item">
-                        <h3>PhD in Computer Engineering</h3>
-                        <div class="institution">Boston University</div>
-                        <div class="duration">September 2022 – Present · GPA 3.8 / 4.0</div>
-                    </div>
-                    <div class="education-item">
-                        <h3>B.Tech in Computer Engineering</h3>
-                        <div class="institution">Aligarh Muslim University</div>
-                        <div class="duration">August 2013 – June 2017 · GPA 8.47 / 10</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Certifications</h2>
-                <div class="section-inner">
-                    <div class="certificates-grid">
-                        <div class="certificate-item">
-                            <h3>On Premises Capacity Upgrade and Monitoring with Apigee</h3>
-                            <div class="issuer">Coursera</div>
-                            <div class="date">Issued August 2020</div>
-                            <div class="credential-id">Credential ID: REMHCYLVARF8</div>
-                        </div>
-                        <div class="certificate-item">
-                            <h3>On Premises Installation and Fundamentals with Apigee</h3>
-                            <div class="issuer">Coursera</div>
-                            <div class="date">Issued June 2020</div>
-                            <div class="credential-id">Credential ID: 83XL8D4VRFVV</div>
-                        </div>
-                        <div class="certificate-item">
-                            <h3>On Premises Management, Security, and Upgrade with Apigee</h3>
-                            <div class="issuer">Coursera</div>
-                            <div class="date">Issued June 2020</div>
-                            <div class="credential-id">Credential ID: GAARHYHMEF9E</div>
-                        </div>
-                        <div class="certificate-item">
-                            <h3>API Security on Google Cloud's Apigee API Platform</h3>
-                            <div class="issuer">Coursera</div>
-                            <div class="date">Issued August 2019</div>
-                            <div class="credential-id">Credential ID: 6TWARY2Y68NZ</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Key Skills</h2>
-                <div class="section-inner">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Languages</h3>
-                            <ul>
-                                <li>Python</li>
-                                <li>Java</li>
-                                <li>C++</li>
-                                <li>JavaScript</li>
-                                <li>Solidity</li>
-                                <li>SQL</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Platforms and Tools</h3>
-                            <ul>
-                                <li>Kubernetes</li>
-                                <li>Kafka</li>
-                                <li>Elasticsearch</li>
-                                <li>ORM frameworks</li>
-                                <li>Spring</li>
-                                <li>OpenStack</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Technologies</h3>
-                            <ul>
-                                <li>Machine learning</li>
-                                <li>Large language models</li>
-                                <li>Cloud computing</li>
-                                <li>Blockchain (Ethereum, Quorum)</li>
-                                <li>React Redux</li>
-                                <li>DataRobot</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- About Tab -->
-        <div id="about" class="tab-content">
-            <section class="section">
-                <h2>About Me</h2>
-                <div class="section-inner">
-                    <div class="about-me-text">
-                        <p>I am a Computer Engineering PhD student at Boston University working in PeacLab on cloud performance analytics, distributed tracing, and ML and LLM based debugging methods.</p>
-                        <p>I have published at IC2E, including a Best Paper Award in 2024 for work on probabilistic tracing for cloud systems. Before my PhD, I worked as Manager Platform Engineering at State Street and built enterprise blockchain applications at Thoughtworks.</p>
-                        <p>I co founded Sunrise Primary School in Lucknow to support affordable education for underprivileged children and mentor AMU students through the Sir Syed Global Scholar Award (SSGSA).</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Interests and Hobbies</h2>
-                <div class="section-inner">
-                    <div class="about-me-text">
-                        <p>Photography · Table tennis · Tennis · Travel · Solving puzzles</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Community Service</h2>
-                <div class="section-inner">
-                    <div class="experience-item">
-                        <h3>Co founder and Trustee</h3>
-                        <div class="company">Sunrise Primary School, Lucknow, India</div>
-                        <div class="duration">August 2021 – Present</div>
-                        <ul>
-                            <li>Co founded a non profit school for underprivileged children with affordable tuition.</li>
-                            <li>Prepared the business plan and helped design the curriculum.</li>
-                            <li>Hire teachers and actively teach students during visits.</li>
-                        </ul>
-                        <a href="https://sunriseschoollucknow.org" target="_blank" class="website-link">
-                            <span>🌐</span> Visit school website
-                        </a>
-                        <div class="iframe-toggle">
-                            <button onclick="toggleIframe()">Show or hide website preview</button>
-                        </div>
-                        <iframe id="school-iframe" class="website-iframe" src="https://sunriseschoollucknow.org" style="display: none;" title="Sunrise Primary School Website"></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Mentoring</h2>
-                <div class="section-inner">
-                    <div class="experience-item">
-                        <h3>Mentor</h3>
-                        <div class="company">Sir Syed Global Scholar Award (SSGSA), North America</div>
-                        <div class="duration">Present</div>
-                        <ul>
-                            <li>Mentor AMU students and alumni for MS and PhD applications.</li>
-                            <li>Help students shortlist programs and refine application materials.</li>
-                            <li>Support students through SSGSA, an AMU alumni initiative that offers mentorship and financial assistance.</li>
-                        </ul>
-                        <a href="https://ssgsa.us" target="_blank" class="website-link">
-                            <span>🌐</span> Visit SSGSA website
-                        </a>
-                    </div>
-
-                    <div class="experience-item" style="margin-top: 14px;">
-                        <h3>Mentor</h3>
-                        <div class="company">Programmers Forum, ZHCET, AMU, India</div>
-                        <div class="duration">October 2015 – 2017</div>
-                        <ul>
-                            <li>Guided freshmen and sophomore students to prepare for coding competitions.</li>
-                            <li>Helped students strengthen problem solving and algorithmic thinking.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Awards and Achievements</h2>
-                <div class="section-inner">
-                    <div class="experience-item">
-                        <h3>First Prize – Inter school programming competition</h3>
-                        <div class="company">Cathedral School, Lucknow, India</div>
-                        <div class="duration">September 2011</div>
-                        <p>Won first prize at the inter school programming competition at Cathedral School.</p>
-                    </div>
-                    <div class="experience-item">
-                        <h3>Second Prize – Table tennis competition</h3>
-                        <div class="company">IIT BHU, Varanasi, India</div>
-                        <div class="duration">September 2014</div>
-                        <ul>
-                            <li>Represented Aligarh Muslim University in table tennis at IIT BHU.</li>
-                            <li>Won the second prize in the competition.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-item">
-                        <h3>Sports achievements – AMU</h3>
-                        <div class="company">Aligarh Muslim University, India</div>
-                        <ul>
-                            <li>Runner up in inter hall lawn tennis competition.</li>
-                            <li>Represented the hall in basketball tournaments.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <img src="images/profile.jpg" alt="Portrait of Syed Mohammad Qasim" class="profile-photo" />
     </div>
 
+    <div class="bio">
+        <p>
+            I am a PhD candidate in Computer Engineering at Boston University, advised by
+            <a href="https://www.bu.edu/eng/profile/ayse-coskun/" target="_blank" rel="noopener">Prof. Ayşe K. Coskun</a> and co-advised by
+            <a href="https://seclab.bu.edu/people/gianluca/" target="_blank" rel="noopener">Prof. Gianluca Stringhini</a>.
+            I work at the intersection of <strong>distributed systems and machine learning</strong>: making large-scale cloud
+            platforms easier to observe, debug, and keep reliable, using ML-based anomaly detection and LLM agents that
+            reason over distributed traces.
+        </p>
+        <p>
+            Most recently, I built <strong>DSTBench</strong> (IC2E 2026), a benchmark for evaluating LLM agents on
+            trace-driven performance debugging in microservices, in collaboration with researchers at Google. Earlier work
+            includes online probabilistic tracing (<strong>Best Paper Award, IC2E 2024</strong>) and a production ML anomaly
+            detection deployment on <a href="https://www.chameleoncloud.org/" target="_blank" rel="noopener">Chameleon Cloud</a>'s
+            OpenStack services (IC2E 2025). This summer I interned at <strong>Uber</strong>, improving the precision of
+            alert-triggered automated rollbacks for deployments.
+        </p>
+        <p>
+            Before my PhD, I spent five years in industry — leading platform engineering at State Street and building
+            enterprise microservices and blockchain systems at Thoughtworks.
+        </p>
+    </div>
+
+    <section id="news">
+        <h2>News</h2>
+        <ul class="news-list">
+            <li><span class="news-date">Aug 2026</span><span>Wrapped up my PhD software engineering internship at Uber, working on deployment safety and automated rollbacks.</span></li>
+            <li><span class="news-date">2026</span><span><em>DSTBench</em> accepted to IC2E 2026.</span></li>
+            <li><span class="news-date">Sep 2025</span><span>Presented <em>Lessons Learned from Anomaly Detection in Chameleon Cloud</em> at IC2E 2025.</span></li>
+            <li><span class="news-date">Sep 2024</span><span>🏆 <em>Unleashing Performance Insights with Online Probabilistic Tracing</em> won the Best Paper Award at IC2E 2024.</span></li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+
+        <div class="pub">
+            <div class="pub-title">DSTBench: Distributed Systems Traces-Driven Agentic Performance Debugging in Microservices<span class="badge badge-note">IC2E 2026</span></div>
+            <div class="pub-authors"><span class="me">S. M. Qasim</span>, G. Stringhini, A. K. Coskun, S. Xi, D. Altınbüken, A. Yazdanbakhsh</div>
+            <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), 2026</div>
+            <div class="pub-desc">A benchmark for evaluating LLM agents on performance debugging of microservice systems driven by distributed traces, in collaboration with researchers at Google.</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title"><a href="https://www.bu.edu/peaclab/files/2025/08/chameleon_IC2E-camera-ready.pdf" target="_blank" rel="noopener">Lessons Learned from Anomaly Detection in Chameleon Cloud</a></div>
+            <div class="pub-authors"><span class="me">S. M. Qasim</span>, C. Hankendi, M. Sherman, K. Keahey, G. Stringhini, A. K. Coskun</div>
+            <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), 2025</div>
+            <div class="pub-desc">Experience report from developing and deploying ML-based anomaly detection on the OpenStack control plane of Chameleon Cloud, a production scientific cloud testbed.</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title"><a href="https://www.bu.edu/peaclab/files/2024/09/astraea_camera_ready2.pdf" target="_blank" rel="noopener">Unleashing Performance Insights with Online Probabilistic Tracing</a><span class="badge badge-award">🏆 Best Paper Award</span></div>
+            <div class="pub-authors">M. Toslali, <span class="me">S. M. Qasim</span>, S. Parthasarathy, F. Oliveira, A. Liu, G. Stringhini, A. K. Coskun</div>
+            <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), September 2024</div>
+            <div class="pub-desc">An online probabilistic tracing system that adaptively decides what to trace, surfacing performance insights in cloud microservices at a fraction of the overhead of exhaustive tracing.</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title"><a href="https://www.bu.edu/peaclab/files/2023/08/2023185935.pdf" target="_blank" rel="noopener">Efficient Navigation of Cloud Performance with 'nuffTrace</a><span class="badge badge-note">Poster</span></div>
+            <div class="pub-authors"><span class="me">S. M. Qasim</span>, M. Toslali, Q. Clark, S. Parthasarathy, F. Oliveira, A. Liu, G. Stringhini, A. K. Coskun</div>
+            <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), September 2023</div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">PhD Software Engineer Intern <span class="org">· Uber</span></div>
+                <div class="item-date">May – Aug 2026</div>
+            </div>
+            <ul>
+                <li>Improved the precision of alert-triggered automated rollbacks, reducing unnecessary rollbacks caused by low-confidence alerts.</li>
+                <li>Enriched rollback decisions with the service dependency graph and surrounding metric context to attribute alerts to the deployment that actually caused them.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">Research Assistant <span class="org">· PeacLab, Boston University</span></div>
+                <div class="item-date">Sep 2022 – Present</div>
+            </div>
+            <ul>
+                <li>Build ML- and LLM-based tools that improve observability and performance debugging in large-scale cloud platforms.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">PhD Intern <span class="org">· Chameleon Cloud</span></div>
+                <div class="item-date">May – Jul 2024</div>
+            </div>
+            <ul>
+                <li>Developed and deployed an ML-based anomaly detection system for Chameleon Cloud's OpenStack services, improving observability and fault detection.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">Platform Engineering, Assistant Manager → Manager <span class="org">· State Street Corporation</span></div>
+                <div class="item-date">Jul 2019 – Sep 2022</div>
+            </div>
+            <ul>
+                <li>Automated ML model development and deployment (DataRobot) to fix data drift and model decay; automated upgrades across 100+ servers with Ansible Tower.</li>
+                <li>Built a front-to-back client servicing platform on API Gateway: 2-way TLS, IP whitelisting, OAuth2, and API-key auth, plus automated maintenance including a virus-scanning microservice and cloud backups.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">Application Developer <span class="org">· Thoughtworks</span></div>
+                <div class="item-date">Jul 2017 – Jul 2019</div>
+            </div>
+            <ul>
+                <li>Built a decentralized oil-trading consortium app on Ethereum-Quorum with Solidity smart contracts, deployed on AWS ECS.</li>
+                <li>Built scalable Spring Boot microservices for real-time Kafka ingestion, including a custom Hibernate object-mapper for high-throughput nested payloads.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">PhD, Computer Engineering <span class="org">· Boston University</span></div>
+                <div class="item-date">Sep 2022 – Present</div>
+            </div>
+            <div class="note">Advisors: Ayşe K. Coskun, Gianluca Stringhini · GPA 3.8/4.0</div>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">B.Tech, Computer Engineering <span class="org">· Aligarh Muslim University</span></div>
+                <div class="item-date">Aug 2013 – Jun 2017</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <p><strong>Languages:</strong> Python, Java, C++, SQL, JavaScript</p>
+            <p><strong>Systems &amp; infrastructure:</strong> Kubernetes/OpenShift, OpenStack, Kafka, Elasticsearch, Spring, Ansible</p>
+            <p><strong>ML &amp; LLMs:</strong> scikit-learn, TensorFlow, LLM agents &amp; tooling (Ollama), distributed tracing &amp; observability</p>
+        </div>
+    </section>
+
+    <section id="service">
+        <h2>Service &amp; Outreach</h2>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">Co-founder &amp; Trustee <span class="org">· <a href="https://sunriseschoollucknow.org" target="_blank" rel="noopener">Sunrise Primary School</a>, Lucknow, India</span></div>
+                <div class="item-date">Aug 2021 – Present</div>
+            </div>
+            <div class="note">Co-founded a non-profit school providing affordable education to underprivileged children; helped design the curriculum and teach during visits.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">Mentor <span class="org">· <a href="https://ssgsa.us" target="_blank" rel="noopener">Sir Syed Global Scholar Award (SSGSA)</a></span></div>
+                <div class="item-date">Present</div>
+            </div>
+            <div class="note">Mentor AMU students and alumni through MS/PhD applications — program shortlisting and application materials.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-head">
+                <div class="item-title">Mentor <span class="org">· Programmers Forum, ZHCET, AMU</span></div>
+                <div class="item-date">2015 – 2017</div>
+            </div>
+            <div class="note">Coached underclassmen for coding competitions and algorithmic problem solving.</div>
+        </div>
+    </section>
+
     <footer>
-        © 2024 Syed Mohammad Qasim · Portfolio
+        Outside work: photography, table tennis, tennis, travel, and puzzles.<br />
+        © 2026 Syed Mohammad Qasim · Last updated August 2026
     </footer>
+
 </div>
-
-<script>
-    function showTab(button, tabName) {
-        const tabContents = document.querySelectorAll(".tab-content");
-        tabContents.forEach(tab => tab.classList.remove("active"));
-
-        document.getElementById(tabName).classList.add("active");
-
-        const navTabs = document.querySelectorAll(".nav-tab");
-        navTabs.forEach(tab => tab.classList.remove("active"));
-        button.classList.add("active");
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function toggleIframe() {
-        const iframe = document.getElementById("school-iframe");
-        if (!iframe) return;
-        iframe.style.display = iframe.style.display === "none" ? "block" : "none";
-    }
-</script>
 </body>
 </html>
